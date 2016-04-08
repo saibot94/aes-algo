@@ -91,18 +91,12 @@ uint8 dot(uint8 aa, uint8 bb)
 {
 	// returneaza rezultatul operatiei aa * bb ( * - operatia dot)
    uint8 p = 0;
-   uint8 counter;
-   uint8 hi_bit_set;
-   for (counter = 0; counter < 8; counter++) {
-      if ((bb & 1) != 0) {
-         p ^= aa;
-      }
-      hi_bit_set = (uint8) (aa & 0x80);
-      aa <<= 1;
-      if (hi_bit_set != 0) {
-         aa ^= 0x1b; /* x^8 + x^4 + x^3 + x + 1 */
-      }
-      bb >>= 1;
+   int idx = 1;
+   for (int k = 0; k < 8; k++){
+   	if(aa && idx){
+   		p = sum ^ XTIM[bb][k];
+   	}
+   	idx = idx * 2;
    }
    return p;
 }
