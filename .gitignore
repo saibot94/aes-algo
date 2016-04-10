@@ -1,2 +1,5 @@
 .DS_Store
 *.out
+*.cbp
+*.depend
+aes11/obj

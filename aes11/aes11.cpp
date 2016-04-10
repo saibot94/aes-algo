@@ -9,7 +9,7 @@
 
 //	====================================================================
 
-//	subrutine                             
+//	subrutine
 
 //	--------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ uint8 dot(uint8 aa, uint8 bb)
    int idx = 1;
    for (int k = 0; k < 8; k++){
    	if(aa && idx){
-   		p = sum ^ XTIM[bb][k];
+   		p = p ^ XTIM[bb][k];
    	}
    	idx = idx * 2;
    }
@@ -129,7 +129,7 @@ void AddRoundKey(uint8 stat[], uint32 W[], int round)
 
 void SubBytes(uint8 stat[])
 {
-	// aplica sandbox-ul 
+	// aplica sandbox-ul
 }
 
 //	--------------------------------------------------------------------
@@ -150,7 +150,7 @@ void MixColumns(uint8 stat[])
 
 void InvSubBytes(uint8 stat[])
 {
-	// aplica inv sandbox-ul 
+	// aplica inv sandbox-ul
 }
 
 //	--------------------------------------------------------------------
@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
 			KeyExpansion(key4, WW, NK[ii]);
 		else if (ii==1)
 			KeyExpansion(key6, WW, NK[ii]);
-		else 
+		else
 			KeyExpansion(key8, WW, NK[ii]);
 	}
 
@@ -245,7 +245,7 @@ int main(int argc, char* argv[])
 	display_b(state);
 	ShiftRows(state);
 	display_b(state);
-	AddRoundKey(state, WW, NR);	
+	AddRoundKey(state, WW, NR);
 
 	display_b(state);
 
